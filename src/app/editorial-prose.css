@@ -1,0 +1,16 @@
+/* Editorial Content Styling */
+.prose-editorial {
+  @apply space-y-6;
+}
+
+.prose-editorial p {
+  @apply mb-6;
+}
+
+.prose-editorial img {
+  @apply w-full h-auto my-12 grayscale hover:grayscale-0 transition-all duration-700 border border-brand-outline;
+}
+
+.prose-editorial blockquote {
+  @apply border-l-4 border-brand-charcoal pl-6 py-2 italic serif text-2xl my-8 text-brand-smoke;
+}

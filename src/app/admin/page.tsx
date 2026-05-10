@@ -95,7 +95,7 @@ export default function AdminDashboard() {
                     onChange={e => setArticleForm({...articleForm, publishedDate: e.target.value})}
                   />
                 </div>
-              </div_div>
+              </div>
               <div>
                 <label className="label-caps block mb-2">Cover Image URL</label>
                 <input 

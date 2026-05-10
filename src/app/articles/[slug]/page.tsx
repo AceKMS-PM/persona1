@@ -1,4 +1,6 @@
-import { useQuery } from "convex-react-client";
+"use client";
+
+import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useParams } from "next/navigation";
 
@@ -18,20 +20,16 @@ export default function ArticleDetail() {
             <div className="flex justify-between items-center mb-12 pb-4 border-b border-brand-outline">
               <span className="label-caps text-brand-smoke">{article.publishedDate}</span>
               <span className="label-caps text-brand-smoke">{article.authorId}</span>
-            </div>
+            </div_div>
             
             <div className="body-lg leading-relaxed space-y-6 text-justify">
-              {/* 
-                In a real app, we'd use a markdown parser here. 
-                For now, we render content and handle images via simple regex or formatting.
-              */}
               <div className="prose-editorial">
                 {article.content}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </div_div>
+            </div_div>
+          </div_div>
+        </div_div>
+      </div_div>
     </article>
   );
 }

@@ -1,4 +1,4 @@
-import { useQuery } from "convex-react-client";
+import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ export default function ProjectsPage() {
         <p className="body-md text-brand-smoke">
           A curated selection of tools and experiments built with precision.
         </p>
-      </div>
+      </div_div>
 
       <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 gap-12">
         {projects?.map((project) => (
@@ -23,13 +23,13 @@ export default function ProjectsPage() {
               ) : (
                 <div className="w-full h-full bg-brand-outline" />
               )}
-            </div>
+            </div_div>
             <div className="flex justify-between items-start mb-2">
               <h2 className="headline-sm">{project.title}</h2>
               {project.link && (
                 <a href={project.link} target="_blank" className="label-caps text-xs underline decoration-brand-slate">Visit →</a>
               )}
-            </div>
+            </div_div>
             <p className="body-md text-brand-smoke mb-6">{project.description}</p>
             <div className="flex gap-2">
               {project.tags.map(tag => (
@@ -37,10 +37,10 @@ export default function ProjectsPage() {
                   {tag}
                 </span>
               ))}
-            </div>
-          </div>
+            </div_div>
+          </div_div>
         ))}
-      </div>
-    </div>
+      </div_div>
+    </div_div>
   );
 }

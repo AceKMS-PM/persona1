@@ -1,4 +1,7 @@
-import Navbar from "@/components/navbar";
+import { Providers } from "../components/providers/theme-provider";
+import { ConvexProviderWrapper } from "../components/providers/convex-provider";
+import Navbar from "../components/navbar";
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -20,8 +23,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// Note: Re-importing Providers and ConvexProviderWrapper inside layout.tsx logic
-import { Providers } from "./providers/theme-provider";
-import { ConvexProviderWrapper } from "./providers/convex-provider";
-import "./globals.css";

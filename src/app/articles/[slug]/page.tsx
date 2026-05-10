@@ -20,16 +20,16 @@ export default function ArticleDetail() {
             <div className="flex justify-between items-center mb-12 pb-4 border-b border-brand-outline">
               <span className="label-caps text-brand-smoke">{article.publishedDate}</span>
               <span className="label-caps text-brand-smoke">{article.authorId}</span>
-            </div_div>
+            </div>
             
             <div className="body-lg leading-relaxed space-y-6 text-justify">
               <div className="prose-editorial">
                 {article.content}
-              </div_div>
-            </div_div>
-          </div_div>
-        </div_div>
-      </div_div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </article>
   );
 }

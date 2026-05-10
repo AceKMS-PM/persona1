@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import Link from "next/link";
@@ -12,7 +14,7 @@ export default function ArticlesPage() {
         <p className="body-md text-brand-smoke">
           Essays on engineering, design philosophy, and the pursuit of knowledge.
         </p>
-      </div_div>
+      </div>
 
       <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
         {articles?.map((article) => (
@@ -23,13 +25,13 @@ export default function ArticlesPage() {
               ) : (
                 <div className="w-full h-full bg-brand-outline" />
               )}
-            </div_div>
+            </div>
             <span className="label-caps text-brand-smoke">{article.category}</span>
             <h2 className="headline-sm mt-2 group-hover:text-brand-slate transition-colors">{article.title}</h2>
             <p className="label-caps mt-4 text-brand-smoke opacity-50">{article.publishedDate}</p>
           </Link>
         ))}
-      </div_div>
-    </div_div>
+      </div>
+    </div>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useMutation } from "convex-react-client";
+import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { labelCps } from "@/lib/utils"; // I'll define this utility in a bit
+
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("articles");

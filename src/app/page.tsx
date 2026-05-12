@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="editorial-grid px-5 pt-20 pb-20">
@@ -12,12 +14,12 @@ export default function Home() {
           curate my best projects, and share nuanced viewpoints on the modern web.
         </p>
         <div className="flex gap-4">
-          <a href="/articles" className="label-caps bg-brand-charcoal text-white px-6 py-3 hover:opacity-80 transition-opacity dark:bg-dark-onSurface dark:text-dark-canvas">
+          <Link href="/articles" className="label-caps bg-brand-charcoal text-white px-6 py-3 hover:opacity-80 transition-opacity dark:bg-dark-onSurface dark:text-dark-canvas">
             Read Articles
-          </a>
-          <a href="/projects" className="label-caps border border-brand-charcoal px-6 py-3 hover:bg-brand-charcoal hover:text-white transition-all dark:border-dark-onSurface dark:hover:bg-dark-onSurface dark:hover:text-dark-canvas">
+          </Link>
+          <Link href="/projects" className="label-caps border border-brand-charcoal px-6 py-3 hover:bg-brand-charcoal hover:text-white transition-all dark:border-dark-onSurface dark:hover:bg-dark-onSurface dark:hover:text-dark-canvas">
             View Work
-          </a>
+          </Link>
         </div>
       </div>
     </div>

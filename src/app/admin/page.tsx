@@ -1,24 +1,50 @@
 "use client";
 
-import { useState } from "react";
-import { useMutation } from "convex/react";
+import { useState, useEffect } from "react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { useRouter } from "next/navigation";
 
+export const dynamic = 'force-dynamic';
 
-export default function AdminDashboard() {
+function AdminDashboard() {
+  const router = useRouter();
+  const adminStatus = useQuery(api.admin.getAdminStatus);
   const [activeTab, setActiveTab] = useState("articles");
   const createArticle = useMutation(api.articles.createArticle);
   const createProject = useMutation(api.projects.createProject);
-
-  // State for Article Form
   const [articleForm, setArticleForm] = useState({
     title: "", slug: "", content: "", category: "", publishedDate: new Date().toISOString().split('T')[0], coverImage: "", authorId: "Admin"
   });
-
-  // State for Project Form
   const [projectForm, setProjectForm] = useState({
     title: "", description: "", link: "", image: "", tags: "", date: new Date().toISOString().split('T')[0]
   });
+
+  useEffect(() => {
+    if (adminStatus !== undefined && adminStatus === null) {
+      router.push("/login");
+    }
+  }, [adminStatus, router]);
+
+  if (adminStatus === undefined) {
+    return (
+      <div className="min-h-screen bg-brand-canvas flex items-center justify-center">
+        <span className="label-caps">Loading...</span>
+      </div>
+    );
+  }
+
+  if (adminStatus === null) {
+    return null;
+  }
+
+  if (adminStatus === false) {
+    return (
+      <div className="min-h-screen bg-brand-canvas dark:bg-dark-canvas flex items-center justify-center">
+        <p className="body-lg">Access denied. You are not an admin.</p>
+      </div>
+    );
+  }
 
   const handleArticleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -174,3 +200,5 @@ export default function AdminDashboard() {
     </div>
   );
 }
+
+export default AdminDashboard;

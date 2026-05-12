@@ -3,15 +3,8 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
-import { useState, useEffect } from "react";
-
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-brand-outline bg-brand-canvas/80 backdrop-blur-md dark:bg-dark-canvas/80 dark:border-dark-surface">

@@ -1,13 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useAction } from "convex/react";
-import { api } from "@/convex/_generated/api";
-import { useRouter } from "next/navigation";
+import { useAuthActions } from "@convex-dev/auth/react";
 
 export default function LoginPage() {
-  const signIn = useAction(api.auth.signIn);
-  const router = useRouter();
+  const { signIn } = useAuthActions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,11 +17,14 @@ export default function LoginPage() {
     setError("");
 
     try {
-      await signIn({
-        provider: "password",
-        params: { email, password, flow: isSignUp ? "signUp" : "signIn" },
+      const { signingIn } = await signIn("password", {
+        email,
+        password,
+        flow: isSignUp ? "signUp" : "signIn",
       });
-      router.push("/admin");
+      if (signingIn) {
+        window.location.href = "/admin";
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Sign in failed");
     }
